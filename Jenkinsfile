@@ -59,7 +59,10 @@ spec:
                 container(name: 'jnlp', shell: '/bin/bash') {
                     echo 'Pulling new changes'
                     // Крок клонування репозиторію
-                    git 'https://github.com/WildDemonUa/jenkins-ci-lab'
+                    git(
+                        url: 'https://github.com/WildDemonUa/jenkins-ci-lab.git',
+                        branch: "main",
+                    )
                 }
             }
         }
