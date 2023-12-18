@@ -101,6 +101,7 @@ spec:
             steps {
                 container(name: 'kubectl', shell: '/bin/bash') {
                     echo 'Deploying to Kubernetes'
+                    sh "pwd"
                     sh "sed -e 's#{{DOCKER_IMAGE_NAME}}#${DOCKER_IMAGE_NAME}#' -e 's#{{BUILD_NUMBER}}#${BUILD_NUMBER}#' ./k8s/deployment.yaml | kubectl apply -f -"
                 }
             }
