@@ -1,3 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
-# TODO: Ваш код. containerPort який слухає аплікація потрібно встановити як 8080
+metadata:
+  name: oleh-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: oleh
+  template:
+    metadata:
+      labels:
+        app: oleh
+    spec:
+      containers:
+      - name: oleh-container
+        image: olehpl/lab:lab
+        ports:
+        - containerPort: 8080
