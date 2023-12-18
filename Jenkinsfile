@@ -101,7 +101,6 @@ spec:
             steps {
                 container(name: 'kubectl', shell: '/bin/bash') {
                     echo 'Deploying to Kubernetes'
-                    sh "pwd"
                     sh "sed -e 's#{{DOCKER_IMAGE_NAME}}#${DOCKER_IMAGE_NAME}#' -e 's#{{BUILD_NUMBER}}#${BUILD_NUMBER}#' ./k8s/deployment.yaml | kubectl apply -f -"
                 }
             }
@@ -131,7 +130,6 @@ spec:
             steps {
                 echo 'Testing the deployemnt with curl'
                 sleep time: 10, unit: 'SECONDS'
-                sh 'apt-get update && apt-get install -y curl'
                 sh 'curl http://labfive:80'
             }
         }
