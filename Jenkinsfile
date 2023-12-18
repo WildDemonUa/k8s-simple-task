@@ -60,7 +60,7 @@ spec:
                     echo 'Pulling new changes'
                     // Крок клонування репозиторію
                     git(
-                        url: 'https://github.com/WildDemonUa/jenkins-ci-lab.git',
+                        url: 'https://github.com/WildDemonUa/k8s-simple-task.git',
                         branch: "main",
                     )
                 }
