@@ -129,7 +129,6 @@ spec:
             }
             steps {
                     echo 'Testing the deployment with curl'
-                    sleep time: 10, unit: 'SECONDS'
                     sh 'curl http://labfive:80'      
             }
         }

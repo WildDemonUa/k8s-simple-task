@@ -1,9 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: oleh-deployment
+  name: labfive
+  labels:
+    app: labfive
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: labfive
@@ -13,7 +15,7 @@ spec:
         app: labfive
     spec:
       containers:
-      - name: oleh-container
-        image: olehpl/lab:lab
+      - name: labfive
+        image: lab
         ports:
         - containerPort: 8080

@@ -2,7 +2,7 @@
 FROM scratch
 
 # Визначення аргументу APP_NAME та його значення за замовчуванням
-ARG APP_NAME=labfive
+ARG APP_NAME=Oleh
 
 # Створення робочої директорії
 WORKDIR /app
