@@ -128,9 +128,16 @@ spec:
                 }
             }
             steps {
-                echo 'Testing the deployemnt with curl'
-                sleep time: 30, unit: 'SECONDS'
-                sh 'curl http://labfive:80'
+                container(name: 'kubectl', shell: '/bin/bash') {
+                    echo 'Waiting for Deployment to be ready'
+                    sh 'kubectl rollout status deployment/oleh-deployment'
+
+                    echo 'Testing the deployment with curl'
+                    sleep time: 60, unit: 'SECONDS'  // Adjust the sleep duration as needed
+
+                    sh 'apt-get update && apt-get install -y curl'
+                    sh 'curl http://labfive:80'
+                }        
             }
         }
     }
