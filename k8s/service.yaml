@@ -4,7 +4,7 @@ metadata:
   name: labfive
 spec:
   selector:
-    app: oleh
+    app: labfive
   ports:
     - protocol: TCP
       port: 80
