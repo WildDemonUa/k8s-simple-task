@@ -6,11 +6,11 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: oleh
+      app: labfile
   template:
     metadata:
       labels:
-        app: oleh
+        app: labfile
     spec:
       containers:
       - name: oleh-container
