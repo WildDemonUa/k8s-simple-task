@@ -84,6 +84,7 @@ spec:
                 }
             }
         }
+
         stage('Build image') {
             // Не потрібно змінювати. Цей код працюватиме, якщо у вас правильний Dockerfile.
             environment {
@@ -102,6 +103,7 @@ spec:
                 container(name: 'kubectl', shell: '/bin/bash') {
                     echo 'Deploying to Kubernetes'
                     sh "sed -e 's#{{DOCKER_IMAGE_NAME}}#${DOCKER_IMAGE_NAME}#' -e 's#{{BUILD_NUMBER}}#${BUILD_NUMBER}#' ./k8s/deployment.yaml | kubectl apply -f -"
+                    archiveArtifacts artifacts: "k8s/deployment.yaml", onlyIfSuccessful: true
                 }
             }
         }
