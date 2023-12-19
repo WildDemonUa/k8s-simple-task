@@ -102,8 +102,7 @@ spec:
             steps {
                 container(name: 'kubectl', shell: '/bin/bash') {
                     echo 'Deploying to Kubernetes'
-                    sh "sed -e 's#{{DOCKER_IMAGE_NAME}}#${DOCKER_IMAGE_NAME}#' -e 's#{{BUILD_NUMBER}}#${BUILD_NUMBER}#' ./k8s/deployment.yaml | microk8s kubectl apply -f -"
-                    archiveArtifacts artifacts: "k8s/deployment.yaml", onlyIfSuccessful: true
+                    sh "sed -e 's#image: lab#image: ${DOCKER_IMAGE_NAME}:${BUILD_NUMBER}#' ./k8s/deployment.yaml | kubectl apply -f -"
                 }
             }
         }
