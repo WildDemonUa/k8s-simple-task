@@ -129,8 +129,7 @@ spec:
             }
             steps {
                 echo 'Testing the deployemnt with curl'
-                sleep time: 10, unit: 'SECONDS'
-                sh 'apt-get install -y curl'
+                sleep time: 30, unit: 'SECONDS'
                 sh 'curl http://labfive:80'
             }
         }
